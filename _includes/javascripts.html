@@ -23,6 +23,18 @@
       var height = $('.article-image').height();
       $('.post-content').css('padding-top', height + 'px');
 
+      // Tab functionality
+      $('.tab-link').click(function(e) {
+        e.preventDefault();
+        var targetTab = $(this).attr('href');
+        
+        $('.tab-link').removeClass('active');
+        $(this).addClass('active');
+        
+        $('.tab').removeClass('active');
+        $(targetTab).addClass('active');
+      });
+
       $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
          && location.hostname == this.hostname) {
